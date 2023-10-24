@@ -65,8 +65,8 @@ function detailPage(detail) {
             </button>
           </div>
           <div class="favorites">
-          <button id="favoritesBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#favorites-detail-modalBox" data-id="${id}">
-          <i class="fa-regular fa-star fa-2xl" style="color: #ffffff;"></i>
+            <button id="favoritesBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#favorites-detail-modalBox" data-id="${id}">
+            <i class="fa-regular fa-star fa-2xl" style="color: #ffffff;"></i>
           </div>
         </div>
       </div>
@@ -84,13 +84,9 @@ function detailPage(detail) {
   // 메인 섹션 화면에 상세 페이지 삽입
   document.querySelector('#movieCards').innerHTML = html;
 }
-
 const videoModalBox = document.querySelector('#video-modalBox');
 const commentModalBox = document.querySelector('#comment-modalBox');
 const favLocalUp = document.querySelector('#favorites-detail-modalBox');
-
-
-
 // 모달이 활성화되면 유튜브 비디오를 로드합니다.
 if (videoModalBox) {
   videoModalBox.addEventListener('show.bs.modal', async function () {
@@ -110,19 +106,170 @@ if (videoModalBox) {
   });
 }
 
+const starInsert = () => {
+  let html = [];
+  const empty = `<stop offset="100%" stop-color="grey" stop-opacity="1" />`
+  const half = `<stop offset="50%" stop-color="yellow" />
+  <stop offset="50%" stop-color="grey" stop-opacity="1" />`
+  const fill = `<stop offset="100%" stop-color="yellow" />`
+  for(let i = 0; i < 5; i++){
+    html.push(`
+      <div class="star-wrap ${i}">
+        <div class="left"></div>
+        <div class="right"></div>
+        <svg class="star-svg-${i}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="800px" width="800px"
+          version="1.1" id="Capa_1" viewBox="0 0 47.94 47.94" xml:space="preserve">
+          <defs>
+            <linearGradient id="half-${i}">
+              ${i === 0? half : empty}
+            </linearGradient>
+          </defs>
+          <path fill="url(#half-${i})"
+            d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z" />
+        </svg>
+      </div>
+    `)
+  }
 
-if (commentModalBox) {
+  const star = document.querySelector('.temp')
+  star.innerHTML = html.join("");
+  console.log(typeof temp)
+  const starWrap = document.querySelectorAll(`.star-wrap`)
+  
+  starWrap.forEach((t,i)=>{
+    const left = t.children[0]
+    const right = t.children[1]
+
+    left.addEventListener('click',(event)=>{
+      const starSvg = document.querySelector(`.star-svg-${i}`)
+      const d = starSvg.firstElementChild.children[0];
+
+      for(let j = 0; j < i; j++){
+        const prevStar = document.querySelector(`.star-svg-${j}`)
+        const p = prevStar.firstElementChild.children[0];
+        p.innerHTML = fill;
+      }
+
+      for(let j = i+1; j < 5; j++){
+        const nextStar = document.querySelector(`.star-svg-${j}`)
+        const p = nextStar.children[0].children[0];
+        p.innerHTML = empty;
+      }
+      d.innerHTML = (half);
+      
+      console.log('추가후',d)
+    })
+    right.addEventListener('click',(event)=>{
+      const starSvg = document.querySelector(`.star-svg-${i}`)
+      const d = starSvg.firstElementChild.children[0];
+      d.innerHTML = (fill);
+      console.log(`${(i+1)*2}`)
+      for(let j = 0; j < i; j++){
+        const prevStar = document.querySelector(`.star-svg-${j}`)
+        const p = prevStar.firstElementChild.children[0];
+        p.innerHTML = fill;
+      }
+
+      for(let j = i+1; j < 5; j++){
+        const nextStar = document.querySelector(`.star-svg-${j}`)
+        console.log('오',nextStar,j)
+        const p = nextStar.children[0].children[0];
+        p.innerHTML = empty;
+      }
+    })
+  })
+}
+
+
+
+
+starInsert();
+const commentForm = document.querySelector('.comment-form');
+// comment-content
+const commentDraw = (movieId) => {
+  const comments = localStorage.getItem(`comment-${movieId}`) ? JSON.parse(localStorage.getItem(`comment-${movieId}`)) : [];
+  console.log('코멘트들',comments)
+  const commentHTML = comments.map((comment,index)=>{
+    return `
+      <div class="comment-item" data-index="${index}">
+        <div>
+          <span>작성자 : </span>
+          <span>${comment.name}</span>
+        </div>
+        <div class="cmt">
+          <span>${comment.comment}</span>
+          <button type="button" class="comment-delete-btn btn btn-outline-dark">삭제</button>
+        </div>
+      </div>
+    `
+  })
+  const nonReview = `<div class='non-review'>작성된 리뷰가 없습니다.</div>`
+
+  if(comments.length === 0) document.querySelector('.comment-content').innerHTML = nonReview;
+  else document.querySelector('.comment-content').innerHTML = commentHTML.join("");
+
+  const commentDeleteBtn = document.querySelectorAll('.comment-delete-btn')
+  commentDeleteBtn.forEach((btn)=>{
+    deleteComment(btn)
+  })
+  
+}
+
+const deleteComment = (btn) => {
+  btn.addEventListener('click',(event)=>{
+    console.log('댓글 삭제')
+    const movieId = commentModalBox.getAttribute('data-id');
+    const deleteIndex = event.currentTarget.parentElement.parentElement.getAttribute('data-index');
+    const load = JSON.parse(localStorage.getItem(`comment-${movieId}`));
+    const checkPw = prompt('삭제 비밀번호 입력');
+
+    if(checkPw === load[deleteIndex].password){
+      load.splice(deleteIndex,1)
+      localStorage.setItem(`comment-${movieId}`,JSON.stringify(load));
+      commentDraw(movieId);
+
+      alert('삭제 완료')
+    }else{
+      alert('비밀번호 다름')
+    }
+  })
+}
+
+if(commentForm){
+  commentForm.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    const movieId = commentModalBox.getAttribute('data-id');
+    const name = document.querySelector('.comment-form .name-input')
+    const comment = document.querySelector('.comment-form .comment-input')
+    const password = prompt('비밀번호를 입력하세요.');
+    const prevLocal = localStorage.getItem(`comment-${movieId}`);
+    if(password){
+      const load = prevLocal ? JSON.parse(prevLocal) : [];
+      load.push({name:name.value,comment:comment.value,password});
+
+      localStorage.setItem(`comment-${movieId}`,JSON.stringify(load));
+
+      name.value = null;
+      comment.value = null;
+      commentDraw(movieId)
+    }
+  })
+}
+
   commentModalBox.addEventListener('show.bs.modal', async function () {
     const movieId = document.querySelector('#clipBtn').getAttribute('data-id');
+    commentModalBox.setAttribute('data-id',movieId)
+    commentDraw(movieId)
 
-    console.log('코멘트 모달', movieId);
+    
+    
+    console.log('코멘트 모달',movieId);
   });
 
   // 모달이 닫히면 유튜브 비디오를 초기화합니다.
   commentModalBox.addEventListener('hide.bs.modal', async function () {
-
+    
   });
-}
 
 // 즐겨찾기 버튼 클릭 시 이벤트
 favLocalUp.addEventListener('click', async function () {
