@@ -1,4 +1,4 @@
-import { movieDetailApi } from "./detail.js";
+import { movieDetailApi } from './detail.js';
 
 //▼API 사이트에서 복붙
 export const options = {
@@ -20,7 +20,7 @@ fetch(
   .then((response) => {
     let movies = response['results']; //가져온 json자료들을 movies에 할당
     topMovies = response['results']; // map으로 할당
-    
+
     //▼불러온 results 배열들을 돌리면서 각각 카드 만들기
     movies.forEach((a) => {
       createMovieCard(a);
@@ -81,13 +81,23 @@ function search() {
   });
 }
 
+//▼검색창이 비어있을 경우 alert
+function searchempty() {
+  if (searchTxt.value !== '' && searchTxt.value !== ' ') {
+  } else {
+    alert('검색어를 입력해주세요.');
+  }
+}
+
 //▼Search 버튼 클릭시 'search'함수 실행
 searchBtn.addEventListener('click', () => {
+  searchempty();
   search();
 });
 //▼Search Input에 Text 작성 후 Enter 누르면 'search'함수 실행
 searchTxt.addEventListener('keyup', function (event) {
   if (event.key === 'Enter') {
+    searchempty();
     search();
   }
 });

@@ -224,3 +224,8 @@ embed{
   width: 100%;
   height: 100%;
 }
+
+//뒤로가기버튼 상단 고정
+#backward {
+  position: fixed;
+}
