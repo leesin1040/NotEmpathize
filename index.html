@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/5f84f45b35.js" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/5f84f45b35.js"
+      crossorigin="anonymous"
+    ></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="detail.css" rel="stylesheet" type="text/css" />
     <title>슾햄 : Search For A Movie</title>
@@ -15,7 +25,6 @@
     <script defer src="script.js" type="module"></script>
     <script defer src="./detail.js" type="module"></script>
     <script defer src="favorites.js" type="module"></script>
-    
   </head>
   <body>
     <nav class="navigationbar">
@@ -33,8 +42,15 @@
           placeholder="영화 제목을 검색하세요."
         />
         <button id="searchyellow" class="searchbtn">Search</button>
-        <button id="favoritesHome" type="button" class="btn btn-primary favoritesHomeBtn" data-bs-toggle="modal" data-bs-target="#favorites-modalBox">⭐</button>
-        
+        <button
+          id="favoritesHome"
+          type="button"
+          class="btn btn-primary favoritesHomeBtn"
+          data-bs-toggle="modal"
+          data-bs-target="#favorites-modalBox"
+        >
+          ⭐
+        </button>
       </span>
     </nav>
     <div class="top_bar">
@@ -45,10 +61,15 @@
     <div id="video-modalBox" class="modal fade" tabindex="-1">
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
-          <iframe id="youtubeFrame" width="1189" height="669" src="https://www.youtube.com/embed"
+          <iframe
+            id="youtubeFrame"
+            width="1189"
+            height="669"
+            src="https://www.youtube.com/embed"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
@@ -56,46 +77,66 @@
     <!--디테일 댓글 모달 부분-->
     <div id="comment-modalBox" class="modal fade" tabindex="-1">
       <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          코멘트 모달1
-        </div>
+        <div class="modal-content">코멘트 모달1</div>
       </div>
     </div>
   </body>
 </html>
 
-    <!--즐겨찾기 상세페이지 모달 부분-->
-    <div class="modal fade" id="favorites-detail-modalBox" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">알림</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            즐겨찾기 추가 완료!
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-          </div>
-        </div>
+<!--즐겨찾기 상세페이지 모달 부분-->
+<div
+  class="modal fade"
+  id="favorites-detail-modalBox"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">알림</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">즐겨찾기 추가 완료!</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          닫기
+        </button>
       </div>
     </div>
-    
-    <!--즐겨찾기 홈 모달 부분-->
-    <div class="modal fade" id="favorites-modalBox" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">즐겨찾기 목록</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-          </div>
-        </div>
+  </div>
+</div>
+
+<!--즐겨찾기 홈 모달 부분-->
+<div
+  class="modal fade"
+  id="favorites-modalBox"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">즐겨찾기 목록</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          닫기
+        </button>
       </div>
     </div>
+  </div>
+</div>
