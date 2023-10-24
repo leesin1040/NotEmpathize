@@ -66,7 +66,6 @@ function createMovieCard(a) {
 const searchBtn = document.getElementById('searchyellow');
 const searchTxt = document.getElementById('searchinput');
 
-/*원본
 function search() {
   let text = searchTxt.value;
   topMovies.forEach((a) => {
@@ -80,43 +79,17 @@ function search() {
       movieMap.get(movieTitle).style.display = 'none';
     }
   });
-}*/
-
-function search() {
-  let text = searchTxt.value;
-
-  //검색시 검색창 비어있지 않으면 foreach실행
-  topMovies.forEach((a) => {
-    let movieTitle = a['title'];
-    //▼검색어를 모두 소문자 취급하고 카드와 매치
-    if (movieTitle.toLowerCase().includes(text.toLowerCase())) {
-      //▼검색한 텍스트가 포함된 카드는 보이게
-      movieMap.get(movieTitle).style.display = 'block';
-    } else {
-      //▼검색한 텍스트가 없는 카드는 안보이게
-      movieMap.get(movieTitle).style.display = 'none';
-    }
-  });
 }
-//▼검색창이 비어있을 경우 alert
-function searchempty() {
-  if (searchTxt.value !== '') {
-  } else {
-    alert('검색어를 입력해주세요.');
-  }
-}
+
 //▼Search 버튼 클릭시 'search'함수 실행
 searchBtn.addEventListener('click', () => {
-  searchempty();
   search();
 });
 //▼Search Input에 Text 작성 후 Enter 누르면 'search'함수 실행
 searchTxt.addEventListener('keyup', function (event) {
   if (event.key === 'Enter') {
-    searchempty();
     search();
   }
 });
-
 //▼새로고침 시 Search Input Focus상태
 searchTxt.focus();

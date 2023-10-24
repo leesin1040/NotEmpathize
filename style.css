@@ -194,28 +194,3 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(137, 67, 43, 0.5);
   border-radius: 10px;
 }
-
-/* ▼댓글작성 테스트용 */
-form {
-  margin-top: 20px;
-  flex-wrap: wrap;
-  display: flex;
-  align-items: center;
-}
-
-#writerInput {
-  margin: 0px 20px 0px 5px;
-  width: 150px;
-}
-
-#commentBtn {
-  border: 0;
-  outline: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  background-color: #ffde00;
-  margin-left: 1em;
-  color: #0d3b66;
-  padding: 0.6rem 3rem 0.6rem 3rem;
-}
-/* 댓글작성 테스트용 */
