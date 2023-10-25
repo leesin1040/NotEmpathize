@@ -10,7 +10,6 @@ a {
   min-height: 59.5rem;
 }
 
-
 .detail-container .content .info {
   position: absolute;
   width: 30%;
@@ -31,7 +30,7 @@ a {
 }
 
 .detail-container .content .info p {
-  margin: .8rem 0;
+  margin: 0.8rem 0;
 }
 
 .detail-container .content .info .overview {
@@ -45,8 +44,7 @@ a {
   bottom: 5%;
 }
 
-
-.use{
+.use {
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -55,10 +53,10 @@ a {
 .use-button {
   appearance: none;
   background-color: #536872;
-  border: 2px solid #1A1A1A;
+  border: 2px solid #1a1a1a;
   border-radius: 15px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-size: 16px;
@@ -71,7 +69,7 @@ a {
   padding: 16px 24px;
   text-align: center;
   text-decoration: none;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -99,7 +97,6 @@ a {
   left: 5%;
   z-index: 999;
 }
-
 
 .detail-backdrop {
   position: absolute;
@@ -144,59 +141,58 @@ a {
   height: 100%;
 }
 
-#clipBtn{
+#clipBtn {
   margin-right: 1.5rem;
 }
 
-#comment-modalBox .modal-content{
+#comment-modalBox .modal-content {
   background-color: #bab4b4;
 }
 
-.comment-content{
+.comment-content {
   border: 1px solid black;
-  padding: .7rem;
+  padding: 0.7rem;
   margin-bottom: 1rem;
 }
 
-.comment-form{
+.comment-form {
   border-top: 1px solid black;
 }
 
-.name-input{
+.name-input {
   width: 10%;
-  padding: 0 .3rem;
+  padding: 0 0.3rem;
 }
 
-.comment-input{
+.comment-input {
   width: 30%;
   flex-grow: 1;
   resize: none;
-  padding: 0 .3rem;
+  padding: 0 0.3rem;
 }
 
-.comment-item{
+.comment-item {
   border: 1px solid black;
-  margin-bottom: .5rem;
-  padding: .3rem;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
 }
 
-.comment-item .cmt{
+.comment-item .cmt {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.comment-input-wrap{
+.comment-input-wrap {
   display: flex;
 }
 
-
-.input-tag{
+.input-tag {
   display: inline-block;
   font-size: 12px;
 }
 
-.non-review{
+.non-review {
   font-weight: bold;
 }
 
@@ -213,13 +209,6 @@ a {
 .comment-star{
   display: flex;
   margin-bottom: .3rem;
-}
-
-.comment-star-wrap{
-  display: flex;
-  position: relative;
-  width: 15px;
-  height: 15px;
 }
 
 .star-wrap, .comment-star-wrap{

@@ -10,6 +10,7 @@ body {
 .navigationbar {
   background-color: #0d3b66;
   height: 5em;
+  z-index: 1;
 }
 /* 상단 네비게이션바_로고 */
 .logoimg {
