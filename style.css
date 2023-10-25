@@ -259,8 +259,16 @@ footer {
 
 .fa-github {
     color: #ffde00;
+    margin: 6px;
 }
+
 .footerIconBox {
     padding-right: 28%;
     font-size: 30px;
+}
+
+.footerName {
+    display: table-column;
+    justify-content: space-between;
+    align-items: center;
 }
