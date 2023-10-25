@@ -25,19 +25,21 @@ let BadWordsArr = new Array( //나쁜말 어레이....
 function nameCeck() {
   let writerCheck = /^[가-힣a-zA-Z0-9]+$/;
   if (writerCheck.test(searchTxt.value)) {
-    console.log('잘 쳐진 검색어');
+    console.log('작성자명이 확인되었습니다.');
   } else {
     alert('잘못된 입력입니다.');
+    searchTxt.value = ''; //비우기
+    return;
   }
 }
 
 //▼비속어 검사
 function BadWordstest() {
-  let commetTest = writer.value;
+  let commetTest = searchTxt.value;
   for (let i = 0; i < BadWordsArr.length; i++) {
     if (commetTest.includes(BadWordsArr[i])) {
       alert('나쁜말 금지');
-      writer.value = ''; //비우기
+      searchTxt.value = ''; //비우기
       return;
     }
   }
