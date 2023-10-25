@@ -227,3 +227,8 @@ body::-webkit-scrollbar-thumb {
 .btn-secondary:hover {
     background-color: #f95738;
 }
+
+.detail-modal-back {
+    position: fixed;
+    color: #1b1c1d;
+}

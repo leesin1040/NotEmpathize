@@ -48,8 +48,8 @@ function detailPage(detail) {
     html = `
     <div class="detail-container">
       <div class="detail-back">
-        <button type="button" class="btn btn-secondary">
-          <a href="/">뒤로 가기</a>
+        <button type="button" class="btn btn-secondary detail-modal-back">
+          <a href="/"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-xl" style="color: #3b4359;"></i></a>
         </button>
       </div>
       <div class="content">
