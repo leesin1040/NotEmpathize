@@ -224,6 +224,43 @@ body::-webkit-scrollbar-thumb {
     color: #0d3b66;
 }
 
+.btn-primary {
+    background-color: #ffde00;
+    border-color: #0d3b66;
+}
+.btn-primary:hover {
+    background-color: #f95738;
+    border-color: #f95738;
+}
+
 .btn-secondary:hover {
     background-color: #f95738;
+}
+
+.detail-modal-back,
+.use,
+.info {
+    position: fixed;
+}
+
+footer {
+    display: flex;
+    height: 130px;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffde00;
+    background-color: #0d3b66;
+    padding-left: 20%;
+}
+
+.teamlogo {
+    width: 200px;
+}
+
+.fa-github {
+    color: #ffde00;
+}
+.footerIconBox {
+    padding-right: 28%;
+    font-size: 30px;
 }
