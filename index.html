@@ -15,13 +15,13 @@
   <title>슾햄 : Search For A Movie</title>
 
   <script defer src="script.js" type="module"></script>
+  <script defer src="validation.js" type="module"></script>
   <script defer src="./detail.js" type="module"></script>
   <script defer src="favorites.js" type="module"></script>
 </head>
 
 <body>
   <nav class="navigationbar">
-
     <span class="searchbar">
       <a href="index.html" target="_self">
         <img class="logoimg" src="https://github.com/leesin1040/Movie/blob/main/logo.png?raw=true" alt="logo" /></a>
@@ -99,11 +99,11 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">알림</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          즐겨찾기 추가 완료!
-        </div>
+        <div class="modal-body">즐겨찾기 추가 완료!</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            닫기
+          </button>
         </div>
       </div>
     </div>
@@ -114,14 +114,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">즐겨찾기 목록</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            즐겨찾기 목록
+          </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
+        <div class="modal-body">...</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            닫기
+          </button>
         </div>
       </div>
     </div>
