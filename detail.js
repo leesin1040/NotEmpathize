@@ -315,12 +315,15 @@ commentModalBox.addEventListener('hide.bs.modal', async function () {});
 
 // 즐겨찾기
 let arr = [];
+const setFavList = () => {
+    localStorage.setItem('favorites', JSON.stringify(arr));
+};
 
 // 즐겨찾기 버튼 클릭 시 이벤트
 favLocalUp.addEventListener('click', async function () {
     const movieId = document.querySelector('#clipBtn').getAttribute('data-id');
     const getfav = JSON.parse(localStorage.getItem('favorites'));
-    console.log(getfav);
+    // console.log(getfav);
 
     if (getfav !== null) {
         if (getfav.includes(movieId)) {
@@ -332,12 +335,11 @@ favLocalUp.addEventListener('click', async function () {
                 // console.log(item);
             }
             arr.push(movieId);
-            localStorage.setItem('favorites', JSON.stringify(arr));
+            setFavList();
         }
     } else if (getfav === null) {
         arr.push(movieId);
-        localStorage.setItem('favorites', JSON.stringify(arr));
+        setFavList();
     }
-
     arr.push(movieId);
 });
