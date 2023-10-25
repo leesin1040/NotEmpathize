@@ -4,11 +4,7 @@
 */
 
 //비속어 검사
-let writer = document.querySelector('#searchinput');
-let comments = document.querySelector('.comment-input');
-let commentsBtn = document.querySelector('btn btn-info');
-
-let BadWordsArr = new Array( //나쁜말 어레이....
+let BadWordsArr = [
   '개똥',
   '멍멍이',
   '졸작',
@@ -18,29 +14,42 @@ let BadWordsArr = new Array( //나쁜말 어레이....
   '나쁜말',
   '별로',
   '병맛',
-  '나락'
-);
+  '나락',
+];
 
 //▼작성자 이름 테스트
-function nameCeck() {
+export function nameCheck() {
   let writerCheck = /^[가-힣a-zA-Z0-9]+$/;
-  if (writerCheck.test(searchTxt.value)) {
-    console.log('작성자명이 확인되었습니다.');
+  let nameInput = document.querySelector('.comment-form .name-input');
+  if (writerCheck.test(nameInput.value)) {
+    console.log('작성자명 확인완료');
+    return true;
   } else {
-    alert('잘못된 입력입니다.');
-    searchTxt.value = ''; //비우기
-    return;
+    nameInput.value = null; //비우기
+    alert('작성자 이름에 특수문자를 사용할 수 없습니다');
+    return false;
   }
 }
 
 //▼비속어 검사
-function BadWordstest() {
-  let commetTest = searchTxt.value;
+export function badWordstest() {
+  const comment = document.querySelector('.comment-form .comment-input');
+  let flag = false;
   for (let i = 0; i < BadWordsArr.length; i++) {
-    if (commetTest.includes(BadWordsArr[i])) {
+    if (comment.value.includes(BadWordsArr[i])) {
+      comment.value = null; //비우기
       alert('나쁜말 금지');
-      searchTxt.value = ''; //비우기
-      return;
+      return true;
     }
+  }
+  return flag;
+}
+
+//▼검색창이 비어있을 경우 alert
+export function searchempty() {
+  let searchTxt = document.getElementById('searchinput');
+  if (searchTxt.value !== '') {
+  } else {
+    alert('검색어를 입력해주세요.');
   }
 }
