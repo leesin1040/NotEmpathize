@@ -199,31 +199,43 @@ a {
 .non-review{
   font-weight: bold;
 }
-/* iframe,
-object,
-embed{
-  width: 100%;
-  height: 100%;
-} */
 
-.temp{
+.comment-name-flex{
   display: flex;
+  margin: .2rem 0;
 }
 
-.star-wrap{
+.input-star{
+  display: flex;
+  margin-left: .7rem;
+}
+
+.comment-star{
+  display: flex;
+  margin-bottom: .3rem;
+}
+
+.comment-star-wrap{
   display: flex;
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 15px;
+  height: 15px;
 }
 
-.star-wrap div{
+.star-wrap, .comment-star-wrap{
+  display: flex;
+  position: relative;
+  width: 15px;
+  height: 15px;
+}
+
+.star-wrap div, .comment-star-wrap div{
   width: 50%;
   height: 100%;
   z-index: 1;
 }
 
-.star-wrap svg{
+.star-wrap svg, .comment-star-wrap svg{
   position: absolute;
   width: 100%;
   height: 100%;
