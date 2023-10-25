@@ -1,5 +1,4 @@
 import { options } from './script.js';
-import { badWordstest, nameCheck } from './validation.js';
 
 export const movieDetailApi = async (movieId) => {
   await fetch(
@@ -55,8 +54,8 @@ function detailPage(detail) {
   html = `
     <div class="detail-container">
       <div class="detail-back">
-        <button type="button" class="btn btn-secondary">
-          <a href="/">뒤로 가기</a>
+        <button type="button" class="btn btn-secondary detail-modal-back">
+          <a href="/"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-xl" style="color: #3b4359;"></i></a>
         </button>
       </div>
       <div class="content">
@@ -79,16 +78,16 @@ function detailPage(detail) {
         </div>
         <div class="use">
           <button id="clipBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#video-modalBox" data-id="${id}">
-            <i class="fa-solid fa-video fa-2xl" style="color: #ffffff;"></i>
+            <i class="fa-solid fa-video fa-2xl" style="color: #0d3b66;"></i>
           </button>
           <div class="comment">
             <button id="clipBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comment-modalBox" data-id="${id}">
-              <i class="fa-regular fa-comment fa-2xl" style="color: #ffffff;"></i>
+              <i class="fa-regular fa-comment fa-2xl" style="color: #0d3b66;"></i>
             </button>
           </div>
           <div class="favorites">
             <button id="favoritesBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#favorites-detail-modalBox" data-id="${id}">
-            <i class="fa-regular fa-star fa-2xl" style="color: #ffffff;"></i>
+            <i class="fa-regular fa-star fa-2xl" style="color: #0d3b66;"></i>
           </div>
         </div>
       </div>
@@ -108,7 +107,7 @@ function detailPage(detail) {
 }
 const videoModalBox = document.querySelector('#video-modalBox');
 const commentModalBox = document.querySelector('#comment-modalBox');
-const favLocalUp = document.querySelector('#favorites-detail-modalBox');
+const favLocalUp = document.querySelector('.modal-footer button');
 // 모달이 활성화되면 유튜브 비디오를 로드합니다.
 if (videoModalBox) {
   videoModalBox.addEventListener('show.bs.modal', async function () {
@@ -331,17 +330,33 @@ commentModalBox.addEventListener('show.bs.modal', async function () {
 // 모달이 닫히면 유튜브 비디오를 초기화합니다.
 commentModalBox.addEventListener('hide.bs.modal', async function () {});
 
+// 즐겨찾기
+let arr = [];
+const setFavList = () => {
+  localStorage.setItem('favorites', JSON.stringify(arr));
+};
+
 // 즐겨찾기 버튼 클릭 시 이벤트
 favLocalUp.addEventListener('click', async function () {
   const movieId = document.querySelector('#clipBtn').getAttribute('data-id');
-  const checkLocalStorage = localStorage.getItem(movieId);
+  const getfav = JSON.parse(localStorage.getItem('favorites'));
+  // console.log(getfav);
 
-  // console.log("즐겨찾기 click =>", movieId)
-
-  if (checkLocalStorage === null) {
-    localStorage.setItem(movieId, movieId);
-    // console.log(checkLocalStorage)
-  } else {
-    alert('이미 즐겨찾기에 추가 했습니다.');
+  if (getfav !== null) {
+    if (getfav.includes(movieId)) {
+      alert('이미 장바구니에 존재 합니다.');
+      return;
+    } else {
+      for (let item of getfav) {
+        arr.push(item);
+        // console.log(item);
+      }
+      arr.push(movieId);
+      setFavList();
+    }
+  } else if (getfav === null) {
+    arr.push(movieId);
+    setFavList();
   }
+  arr.push(movieId);
 });
