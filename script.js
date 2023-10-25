@@ -1,4 +1,5 @@
-import { movieDetailApi } from "./detail.js";
+import { movieDetailApi } from './detail.js';
+import { searchempty } from './validation.js';
 
 //▼API 사이트에서 복붙
 export const options = {
@@ -20,7 +21,7 @@ fetch(
   .then((response) => {
     let movies = response['results']; //가져온 json자료들을 movies에 할당
     topMovies = response['results']; // map으로 할당
-    
+
     //▼불러온 results 배열들을 돌리면서 각각 카드 만들기
     movies.forEach((a) => {
       createMovieCard(a);
@@ -64,7 +65,7 @@ function createMovieCard(a) {
 
 // ▼검색기능 구현을 위해 HTML의 Searchbar ID가져오기
 const searchBtn = document.getElementById('searchyellow');
-const searchTxt = document.getElementById('searchinput');
+let searchTxt = document.getElementById('searchinput');
 
 function search() {
   let text = searchTxt.value;
@@ -83,11 +84,13 @@ function search() {
 
 //▼Search 버튼 클릭시 'search'함수 실행
 searchBtn.addEventListener('click', () => {
+  searchempty();
   search();
 });
 //▼Search Input에 Text 작성 후 Enter 누르면 'search'함수 실행
 searchTxt.addEventListener('keyup', function (event) {
   if (event.key === 'Enter') {
+    searchempty();
     search();
   }
 });

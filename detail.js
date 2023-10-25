@@ -1,4 +1,5 @@
 import { options } from './script.js';
+import { badWordstest, nameCheck } from './validation.js';
 
 export const movieDetailApi = async (movieId) => {
     await fetch(`https://api.themoviedb.org/3/movie/${movieId}?append_to_response=credits&language=ko-KR`, options)
@@ -62,6 +63,9 @@ function detailPage(detail) {
             <p class="genres">장르: ${genres.map((genre) => genre.name)}</p>
             <p class="release">개봉 연도: ${release_date.slice(0, 4)}</p>
             <p class="director">감독: ${findDirector(credits.crew)}</p>
+            <p class="actor">출연 배우: ${credits.cast[0].original_name}, ${credits.cast[1].original_name}, ${
+        credits.cast[2].original_name
+    }</p>
             <p class="actor">출연 배우: ${credits.cast[0].original_name}, ${credits.cast[1].original_name}, ${
         credits.cast[2].original_name
     }</p>
@@ -282,22 +286,22 @@ const deleteComment = (btn) => {
 if (commentForm) {
     commentForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        const movieId = commentModalBox.getAttribute('data-id');
-        const name = document.querySelector('.comment-form .name-input');
-        const comment = document.querySelector('.comment-form .comment-input');
-        const star = document.querySelector('.input-star').getAttribute('data-star') * 2;
 
-        const password = prompt('비밀번호를 입력하세요.');
-        const prevLocal = localStorage.getItem(`comment-${movieId}`);
-        if (password) {
-            const load = prevLocal ? JSON.parse(prevLocal) : [];
-            load.push({ name: name.value, comment: comment.value, password, star });
-
-            localStorage.setItem(`comment-${movieId}`, JSON.stringify(load));
-
-            name.value = null;
-            comment.value = null;
-            commentDraw(movieId);
+        if (nameCheck() && badWordstest()) {
+            const movieId = commentModalBox.getAttribute('data-id');
+            const name = document.querySelector('.comment-form .name-input');
+            const comment = document.querySelector('.comment-form .comment-input');
+            const star = document.querySelector('.input-star').getAttribute('data-star') * 2;
+            const password = prompt('비밀번호를 입력하세요.');
+            const prevLocal = localStorage.getItem(`comment-${movieId}`);
+            if (password) {
+                const load = prevLocal ? JSON.parse(prevLocal) : [];
+                load.push({ name: name.value, comment: comment.value, password, star });
+                localStorage.setItem(`comment-${movieId}`, JSON.stringify(load));
+                name.value = null;
+                comment.value = null;
+                commentDraw(movieId);
+            }
         }
     });
 }
