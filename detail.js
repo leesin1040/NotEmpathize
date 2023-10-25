@@ -127,11 +127,11 @@ if (videoModalBox) {
   });
 }
 
-const starInsert = () => {
+const initStarInsert = () => {
   let html = [];
   const empty = `<stop offset="100%" stop-color="grey" stop-opacity="1" />`;
   const half = `<stop offset="50%" stop-color="yellow" />
-  <stop offset="50%" stop-color="grey" stop-opacity="1" />`;
+                <stop offset="50%" stop-color="grey" stop-opacity="1" />`;
   const fill = `<stop offset="100%" stop-color="yellow" />`;
   for (let i = 0; i < 5; i++) {
     html.push(`
@@ -152,48 +152,48 @@ const starInsert = () => {
     `);
   }
 
-  const star = document.querySelector('.temp');
+  const star = document.querySelector('.input-star');
   star.innerHTML = html.join('');
   console.log(typeof temp);
-  const starWrap = document.querySelectorAll(`.star-wrap`);
+  const starWrap = document.querySelectorAll(`.input-star .star-wrap`);
 
   starWrap.forEach((t, i) => {
     const left = t.children[0];
     const right = t.children[1];
 
     left.addEventListener('click', (event) => {
-      const starSvg = document.querySelector(`.star-svg-${i}`);
+      const starSvg = document.querySelector(`.star-wrap .star-svg-${i}`);
       const d = starSvg.firstElementChild.children[0];
-
+      console.log(`왼 ${i}.5`);
+      star.setAttribute('data-star', `${i}.5`);
       for (let j = 0; j < i; j++) {
-        const prevStar = document.querySelector(`.star-svg-${j}`);
+        const prevStar = document.querySelector(`.star-wrap .star-svg-${j}`);
         const p = prevStar.firstElementChild.children[0];
         p.innerHTML = fill;
       }
 
       for (let j = i + 1; j < 5; j++) {
-        const nextStar = document.querySelector(`.star-svg-${j}`);
+        const nextStar = document.querySelector(`.star-wrap .star-svg-${j}`);
         const p = nextStar.children[0].children[0];
         p.innerHTML = empty;
       }
       d.innerHTML = half;
-
-      console.log('추가후', d);
     });
     right.addEventListener('click', (event) => {
-      const starSvg = document.querySelector(`.star-svg-${i}`);
+      const starSvg = document.querySelector(`.star-wrap .star-svg-${i}`);
       const d = starSvg.firstElementChild.children[0];
       d.innerHTML = fill;
-      console.log(`${(i + 1) * 2}`);
+
+      console.log(`오 ${i + 1}`);
+      star.setAttribute('data-star', `${i + 1}`);
       for (let j = 0; j < i; j++) {
-        const prevStar = document.querySelector(`.star-svg-${j}`);
+        const prevStar = document.querySelector(`.star-wrap .star-svg-${j}`);
         const p = prevStar.firstElementChild.children[0];
         p.innerHTML = fill;
       }
 
       for (let j = i + 1; j < 5; j++) {
-        const nextStar = document.querySelector(`.star-svg-${j}`);
-        console.log('오', nextStar, j);
+        const nextStar = document.querySelector(`.star-wrap .star-svg-${j}`);
         const p = nextStar.children[0].children[0];
         p.innerHTML = empty;
       }
@@ -201,7 +201,37 @@ const starInsert = () => {
   });
 };
 
-starInsert();
+const commentStarInsert = (num, index) => {
+  let temp_html = '';
+  const d = num / 2;
+  const empty = `<stop offset="100%" stop-color="grey" stop-opacity="1" />`;
+  const half = `<stop offset="50%" stop-color="yellow" />
+                <stop offset="50%" stop-color="grey" stop-opacity="1" />`;
+  const fill = `<stop offset="100%" stop-color="yellow" />`;
+
+  for (let i = 0; i < 5; i++) {
+    console.log(i, d);
+
+    console.log(`${i < d ? (d - i === 0.5 ? '빈공간' : '꽉참') : '반쪽'}`);
+    temp_html += `
+      <div class="comment-star-wrap">
+        <svg class="comment-star-svg-${i}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="800px" width="800px"
+          version="1.1" id="Capa_1" viewBox="0 0 47.94 47.94" xml:space="preserve">
+          <defs>
+            <linearGradient id="comment-half-${index}-${i}">
+              ${i < d ? (d - i === 0.5 ? half : fill) : empty}
+            </linearGradient>
+          </defs>
+          <path fill="url(#comment-half-${index}-${i})"
+            d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z" />
+        </svg>
+      </div>
+    `;
+  }
+
+  return temp_html;
+};
+
 const commentForm = document.querySelector('.comment-form');
 // comment-content
 const commentDraw = (movieId) => {
@@ -213,6 +243,10 @@ const commentDraw = (movieId) => {
     return `
       <div class="comment-item" data-index="${index}">
         <div>
+          <span class="comment-star">${commentStarInsert(
+            comment.star,
+            index
+          )}</span>
           <span>작성자 : </span>
           <span>${comment.name}</span>
         </div>
@@ -234,6 +268,8 @@ const commentDraw = (movieId) => {
   commentDeleteBtn.forEach((btn) => {
     deleteComment(btn);
   });
+
+  initStarInsert();
 };
 
 const deleteComment = (btn) => {
@@ -265,11 +301,14 @@ if (commentForm) {
     const movieId = commentModalBox.getAttribute('data-id');
     const name = document.querySelector('.comment-form .name-input');
     const comment = document.querySelector('.comment-form .comment-input');
+    const star =
+      document.querySelector('.input-star').getAttribute('data-star') * 2;
+
     const password = prompt('비밀번호를 입력하세요.');
     const prevLocal = localStorage.getItem(`comment-${movieId}`);
     if (password) {
       const load = prevLocal ? JSON.parse(prevLocal) : [];
-      load.push({ name: name.value, comment: comment.value, password });
+      load.push({ name: name.value, comment: comment.value, password, star });
 
       localStorage.setItem(`comment-${movieId}`, JSON.stringify(load));
 

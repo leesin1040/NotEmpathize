@@ -1,10 +1,9 @@
 # info
-스파르타 코딩클럽 내일배움캠프 Day-15 개인과제
-영화검색사이트 만들기
+스파르타 코딩클럽 내일배움캠프 Day-21 팀 프로젝트
 
 
 ## link
-- https://leesin1040.github.io/Movie/
+아직 안만듬
 
 
 ## Tach
