@@ -224,11 +224,21 @@ body::-webkit-scrollbar-thumb {
     color: #0d3b66;
 }
 
+.btn-primary {
+    background-color: #ffde00;
+    border-color: #0d3b66;
+}
+.btn-primary:hover {
+    background-color: #f95738;
+    border-color: #f95738;
+}
+
 .btn-secondary:hover {
     background-color: #f95738;
 }
 
-.detail-modal-back {
+.detail-modal-back,
+.use,
+.info {
     position: fixed;
-    color: #1b1c1d;
 }

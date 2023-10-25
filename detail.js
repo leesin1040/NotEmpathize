@@ -70,16 +70,16 @@ function detailPage(detail) {
         </div>
         <div class="use">
           <button id="clipBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#video-modalBox" data-id="${id}">
-            <i class="fa-solid fa-video fa-2xl" style="color: #ffffff;"></i>
+            <i class="fa-solid fa-video fa-2xl" style="color: #0d3b66;"></i>
           </button>
           <div class="comment">
             <button id="clipBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comment-modalBox" data-id="${id}">
-              <i class="fa-regular fa-comment fa-2xl" style="color: #ffffff;"></i>
+              <i class="fa-regular fa-comment fa-2xl" style="color: #0d3b66;"></i>
             </button>
           </div>
           <div class="favorites">
             <button id="favoritesBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#favorites-detail-modalBox" data-id="${id}">
-            <i class="fa-regular fa-star fa-2xl" style="color: #ffffff;"></i>
+            <i class="fa-regular fa-star fa-2xl" style="color: #0d3b66;"></i>
           </div>
         </div>
       </div>
