@@ -8,7 +8,7 @@ let writer = document.querySelector('#searchinput');
 let comments = document.querySelector('.comment-input');
 let commentsBtn = document.querySelector('btn btn-info');
 
-let BadWordsArr = new Array(
+let BadWordsArr = new Array( //나쁜말 어레이....
   '개똥',
   '멍멍이',
   '졸작',
