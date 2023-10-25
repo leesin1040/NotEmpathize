@@ -36,13 +36,13 @@ export function badWordstest() {
   const comment = document.querySelector('.comment-form .comment-input');
   let flag = false;
   for (let i = 0; i < BadWordsArr.length; i++) {
-    if (comment.value.includes(BadWordsArr[i])) {
+    if (BadWordsArr[i].includes(comment.value)) {
       comment.value = null; //비우기
       alert('나쁜말 금지');
-      return true;
+      return flag;
     }
   }
-  return flag;
+  return true;
 }
 
 //▼검색창이 비어있을 경우 alert

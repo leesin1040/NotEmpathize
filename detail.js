@@ -299,6 +299,7 @@ const deleteComment = (btn) => {
 if (commentForm) {
   commentForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
     if (nameCheck() && badWordstest()) {
       const movieId = commentModalBox.getAttribute('data-id');
       const name = document.querySelector('.comment-form .name-input');
