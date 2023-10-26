@@ -16,9 +16,9 @@ console.log('favListArr =>', favListArr);
 // favListArr를 result 변수에 누적 저장
 for (let i in favListArr) {
     result += `<div>`;
-    result += `<div class="favListArrBox"><p class="favListArr">${favListArr[i].title}</p>
-    <div class="fa">x</div>`;
-    result += `<p style="display:none">${favListArr[i].id}</p>`;
+    result += `<div class="favListArrBox"><p class="favListArr" id="${favListArr[i].id}">${favListArr[i].title}</p>
+    <div class="fa" id="${favListArr[i].id}">x</div>`;
+    // result += `<p style="display:none">${favListArr[i].id}</p>`;
     result += `</div>`;
 }
 console.log('result =>', result);
@@ -58,9 +58,25 @@ favMainBtn.addEventListener('click', (e) => {
     console.log('local id값 불러오기 =>', getfavArr);
 });
 
-// 즐겨찾기 목록 클릭 이벤트
+// 즐겨찾기 목록 페이지 이동 이벤트
 const favListClk = document.querySelector('.favListArr');
+const favListClkId = document.querySelector('.favListArr').getAttribute('id');
 favListClk.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('목록 클릭!');
+    console.log('목록 클릭!', favListClkId);
+    movieDetailApi(favListClkId);
 });
+
+// 즐겨찾기 목록 삭제 이벤트
+const favListDel = document.querySelector('.fa');
+const favListDelId = document.querySelector('.fa').getAttribute('id');
+favListDel.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('삭제 클릭! =>', favListDelId);
+});
+
+// 페이지 이동 시 모달 창 닫기
+// function modaldown() {
+//     document.querySelector('#favorites-modalBox').style.display = 'none';
+//     document.querySelector('#favorites-modalBox').class = 'modal fade';
+// }

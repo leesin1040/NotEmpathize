@@ -319,42 +319,6 @@ commentModalBox.addEventListener('show.bs.modal', async function () {
 // 모달이 닫히면 유튜브 비디오를 초기화합니다.
 commentModalBox.addEventListener('hide.bs.modal', async function () {});
 
-// // 즐겨찾기
-// // 즐겨찾기 버튼 클릭 시 이벤트
-// favLocalUp.addEventListener('click', async function () {
-//     const movieTitle = document.querySelector('#favtitle').getAttribute('data-title');
-//     const movieId = document.querySelector('#clipBtn').getAttribute('data-id');
-//     const getfav = JSON.parse(localStorage.getItem('favorites'));
-//     let arr = [];
-//     let favStr = {
-//         title: movieTitle,
-//         id: movieId,
-//     };
-
-//     const setFavList = () => {
-//         localStorage.setItem('favorites', JSON.stringify(arr));
-//     };
-//     // console.log(getfav);
-
-//     if (getfav !== null) {
-//         if (getfav.includes(movieId)) {
-//             alert('이미 즐겨찾기에 존재 합니다.');
-//             return;
-//         } else {
-//             for (let item of getfav) {
-//                 arr.push(item);
-//                 // console.log(item);
-//             }
-//             arr.push(movieId);
-//             setFavList();
-//         }
-//     } else if (getfav === null) {
-//         arr.push(movieId);
-//         setFavList();
-//     }
-//     arr.push(movieId);
-// });
-
 // 즐겨찾기
 // 즐겨찾기 버튼 클릭 시 이벤트
 favLocalUp.addEventListener('click', async function () {
