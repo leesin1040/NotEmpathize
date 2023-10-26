@@ -26,7 +26,6 @@ console.log('result =>', result);
 // 즐겨찾기 모달 목록에 삽입
 const modalBody = document.querySelector('#favContent');
 modalBody.innerHTML = result;
-
 fetch('https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=1', options)
     .then((response) => response.json())
     .then((response) => {
@@ -57,4 +56,11 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=1', opti
 favMainBtn.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('local id값 불러오기 =>', getfavArr);
+});
+
+// 즐겨찾기 목록 클릭 이벤트
+const favListClk = document.querySelector('.favListArr');
+favListClk.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('목록 클릭!');
 });
