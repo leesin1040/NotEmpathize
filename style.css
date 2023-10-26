@@ -272,3 +272,36 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
+
+.favListArr {
+    background-color: #ffffff;
+    border-radius: 15px;
+    display: flex;
+    padding: 7px;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+}
+
+.favListArr:hover {
+    background-color: #0d3b667c;
+    cursor: pointer;
+}
+
+.fa {
+    width: 38px;
+    height: 38px;
+    padding-left: 12px;
+    padding-top: 12px;
+    margin-top: px;
+    margin-left: 5px;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+.fa:hover {
+    background-color: #0d3b6681;
+}
+
+.favListArrBox {
+    display: flex;
+}

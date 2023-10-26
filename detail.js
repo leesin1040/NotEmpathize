@@ -58,7 +58,9 @@ function detailPage(detail) {
           <img src="https://image.tmdb.org/t/p/original${backImage}" alt="포스터">
         </div>
         <div class="info">
-          <h1 class="title">${title ? title.replace(/[:\n]/g, ':<br>') : original_title}</h1>
+          <h1 id="favtitle" class="title" data-title="${title}">${
+        title ? title.replace(/[:\n]/g, ':<br>') : original_title
+    }</h1>
           <div class="desc">
             <p class="genres">장르: ${genres.map((genre) => genre.name)}</p>
             <p class="release">개봉 연도: ${release_date.slice(0, 4)}</p>
@@ -317,33 +319,76 @@ commentModalBox.addEventListener('show.bs.modal', async function () {
 // 모달이 닫히면 유튜브 비디오를 초기화합니다.
 commentModalBox.addEventListener('hide.bs.modal', async function () {});
 
-// 즐겨찾기
-let arr = [];
-const setFavList = () => {
-    localStorage.setItem('favorites', JSON.stringify(arr));
-};
+// // 즐겨찾기
+// // 즐겨찾기 버튼 클릭 시 이벤트
+// favLocalUp.addEventListener('click', async function () {
+//     const movieTitle = document.querySelector('#favtitle').getAttribute('data-title');
+//     const movieId = document.querySelector('#clipBtn').getAttribute('data-id');
+//     const getfav = JSON.parse(localStorage.getItem('favorites'));
+//     let arr = [];
+//     let favStr = {
+//         title: movieTitle,
+//         id: movieId,
+//     };
 
+//     const setFavList = () => {
+//         localStorage.setItem('favorites', JSON.stringify(arr));
+//     };
+//     // console.log(getfav);
+
+//     if (getfav !== null) {
+//         if (getfav.includes(movieId)) {
+//             alert('이미 즐겨찾기에 존재 합니다.');
+//             return;
+//         } else {
+//             for (let item of getfav) {
+//                 arr.push(item);
+//                 // console.log(item);
+//             }
+//             arr.push(movieId);
+//             setFavList();
+//         }
+//     } else if (getfav === null) {
+//         arr.push(movieId);
+//         setFavList();
+//     }
+//     arr.push(movieId);
+// });
+
+// 즐겨찾기
 // 즐겨찾기 버튼 클릭 시 이벤트
 favLocalUp.addEventListener('click', async function () {
+    const movieTitle = document.querySelector('#favtitle').getAttribute('data-title');
     const movieId = document.querySelector('#clipBtn').getAttribute('data-id');
     const getfav = JSON.parse(localStorage.getItem('favorites'));
-    // console.log(getfav);
+    let toNumId = Number(movieId);
+    let arr = [];
+    let favStr = {
+        title: movieTitle,
+        id: toNumId,
+    };
+
+    const setFavList = () => {
+        localStorage.setItem('favorites', JSON.stringify(arr));
+    };
 
     if (getfav !== null) {
-        if (getfav.includes(movieId)) {
-            alert('이미 장바구니에 존재 합니다.');
+        if (getfav.some((data) => data.id == movieId)) {
+            alert('이미 즐겨찾기에 존재 합니다.');
             return;
         } else {
             for (let item of getfav) {
                 arr.push(item);
                 // console.log(item);
             }
-            arr.push(movieId);
+            arr.push(favStr);
             setFavList();
+            window.location.reload();
         }
     } else if (getfav === null) {
-        arr.push(movieId);
+        arr.push(favStr);
         setFavList();
+        window.location.reload();
     }
-    arr.push(movieId);
+    arr.push(favStr);
 });
