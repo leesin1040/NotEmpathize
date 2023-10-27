@@ -134,6 +134,9 @@ nav {
     flex-wrap: wrap;
     display: flex;
     margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 10%;
+    width: 80%;
 }
 
 /* 카드 */
