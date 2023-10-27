@@ -1,10 +1,24 @@
-/* 폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YEONGJUPunggiGinsengTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/YEONGJUPunggiGinsengTTF.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'NanumSquareNeo-Variable';
+}
 
 body {
-    font-family: 'Merriweather', serif;
-    letter-spacing: -2;
-    text-align: justify;
     background-color: #1b1c1d;
 }
 /* 상단 네비게이션바 */
@@ -86,10 +100,11 @@ input[type='text']:focus {
     border: 0;
     outline: none;
     border-radius: 20px;
-    font-size: 1.3em;
+    font-family: 'YEONGJUPunggiGinsengTTF';
+    font-size: 1.8em;
     background-color: #ffde00;
     margin-left: 1em;
-    color: #0d3b66;
+    color: #f95738;
     width: 60px;
     height: 50.38px;
 }
@@ -118,6 +133,7 @@ nav {
 #movieCards {
     flex-wrap: wrap;
     display: flex;
+    margin-top: 100px;
 }
 
 /* 카드 */
@@ -139,7 +155,7 @@ nav {
     width: 15em;
     height: 22em;
     overflow: auto;
-    margin-left: 1em;
+    margin-left: 0.8em;
     margin-top: 1em;
     border-radius: 15px;
     border: 0;
@@ -154,6 +170,7 @@ nav {
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0.2em;
+    margin-top: 0.5em;
     word-spacing: -4;
 }
 .stars {
@@ -169,7 +186,7 @@ nav {
 }
 .overview {
     font-size: 0.9em;
-    margin: 0.7em 0.5em 0.2em 1em;
+    margin: 0.3em 0.5em 0.2em 1em;
     height: 4em;
     overflow-y: scroll;
     padding-right: 0.5em;
@@ -300,9 +317,53 @@ footer {
 }
 .fa:hover {
     background-color: #0d3b6681;
-    cursor: pointer;
 }
 
 .favListArrBox {
     display: flex;
+}
+
+#pageBtn {
+    text-align: center;
+}
+
+/* 검색버튼 */
+.pagebtn {
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background-color: #ffde00;
+    margin-left: 0.5em;
+    color: #0d3b66;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+}
+/* 검색버튼 호버 컬러변경, 마우스 모양 바꾸기*/
+.pagebtn:hover {
+    background-color: #f95738;
+    transition: 0.5s;
+    cursor: pointer;
+    outline-color: #f95738;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px #f95738;
+    transition: 0.5s;
+}
+/* 검색버튼 누르면 컬러변경 */
+.pagebtn:active {
+    background-color: #ee964b;
+}
+
+.disabled {
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background-color: #685a00;
+    margin-left: 0.5em;
+    color: #0d3b66;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+}
+
+footer {
+    margin-top: 50px;
 }

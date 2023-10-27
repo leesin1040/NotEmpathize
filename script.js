@@ -10,23 +10,28 @@ export const options = {
             'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYjIyNTE0M2EzNTg3OGQxY2FkYTdmNjk4YmYwZWZhMCIsInN1YiI6IjY1MmY5OThjYTgwMjM2MDBjMzE2NWQ0OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vMiFt7pND4DpoUQnFLKQbI03hux5EyIse35JoMwpfTA',
     },
 };
+
 let topMovies;
 let movieMap = new Map();
+let movieCardpPost = document.getElementById('movieCards');
 
-fetch('https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=1', options)
+export function getMovieApi(page = 1){
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=${page}`, options)
     .then((response) => response.json())
     .then((response) => {
         let movies = response['results']; //가져온 json자료들을 movies에 할당
         topMovies = response['results']; // map으로 할당
 
+        movieCardpPost.innerHTML = "";
         //▼불러온 results 배열들을 돌리면서 각각 카드 만들기
         movies.forEach((a) => {
             createMovieCard(a);
         });
     });
+}
 
+getMovieApi();
 //▼HTML의 ID값 가져오기
-let movieCardpPost = document.getElementById('movieCards');
 
 //▼카드 만들기
 function createMovieCard(a) {
@@ -42,14 +47,16 @@ function createMovieCard(a) {
     movieCard.classList.add('movie-card');
     //▼movieCard가 만드는 div요소 내부에 HTML 넣기
     movieCard.innerHTML = `
-    <div class="card">
-      <img src="https://image.tmdb.org/t/p/w200/${moviePoster}" class="card-img-top" alt="..."/>
-      <p id="cardtitle"> ${movieTitle} </p>
-      <p class="stars">Scores <span class="starscolor">${movieAverage}</span></p>
-      <p class="overview">${movieOverview}</p>
-    </div>`;
+        <div class="card">
+        <img src="https://image.tmdb.org/t/p/w200/${moviePoster}" class="card-img-top" alt="..."/>
+        <p id="cardtitle"> ${movieTitle} </p>
+        <p class="stars">Scores <span class="starscolor">${movieAverage}</span></p>
+        <p class="overview">${movieOverview}</p>
+        </div>`;
+
     //▼위에서 만들어진 movieCard들을 movieCardPost에 Child로 만들기
     movieCardpPost.appendChild(movieCard);
+
     //▼영화 제목과 카드를 Map 키값으로 만들기 []
     movieMap.set(movieTitle, movieCard);
 

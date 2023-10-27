@@ -3,7 +3,7 @@
 
 
 ## link
-아직 안만듬
+https://leesin1040.github.io/NotEmpathize/
 
 
 ## Tach

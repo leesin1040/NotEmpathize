@@ -17,7 +17,6 @@ for (let i in favListArr) {
     result += `<div class="favListArrTitle">`;
     result += `<p class="favListArr" id="${favListArr[i].id}">${favListArr[i].title}</p>`;
     result += `</div>`;
-
     result += `<div class="favListArrDel">
     <div class="fa" id="${favListArr[i].id}">x</div>
     </div>`;
@@ -55,13 +54,15 @@ favListDel.forEach((clk) => {
     clk.addEventListener('click', (e) => {
         e.preventDefault();
         const favListClkDelEvent = e.currentTarget.children[0].getAttribute('id');
-        // console.log('favListClkDelEvent', favListClkDelEvent);
+        console.log('favListClkDelEvent', typeof favListClkDelEvent);
+        let favListToNum = Number(favListClkDelEvent);
+        let deleteAfterArr = getfavArr.filter((element) => element.id !== favListToNum);
+        console.log(deleteAfterArr);
+        if (!confirm('정말 삭제 하시겠습니까?')) {
+            return;
+        } else {
+            localStorage.setItem('favorites', JSON.stringify(deleteAfterArr));
+            window.location.reload();
+        }
     });
 });
-
-// 즐겨찾기 목록 삭제 함수
-function listDeleteFunc(del) {
-    console.log(favListDelId);
-    console.log('콜백 함수 =>', del.id);
-    return del.id !== favListClkDelEvent;
-}
