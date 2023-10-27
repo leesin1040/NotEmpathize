@@ -239,13 +239,13 @@ const commentDraw = (movieId) => {
     console.log('코멘트들', comments);
     const commentHTML = comments.map((comment, index) => {
         return `
-      <div class="comment-item" data-index="${index}">
+      <div class="comment-item modal-background-body" data-index="${index}">
         <div>
           <span class="comment-star">${commentStarInsert(comment.star, index)}</span>
           <span>작성자 : </span>
           <span>${comment.name}</span>
         </div>
-        <div class="cmt">
+        <div class="cmt modal-background-body">
           <span>${comment.comment}</span>
           <button type="button" class="comment-delete-btn btn btn-outline-dark">삭제</button>
         </div>

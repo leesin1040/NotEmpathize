@@ -54,7 +54,7 @@ body {
 /* 검색 입력창 */
 input[type='text'] {
     background-color: rgb(233, 233, 233);
-    width: 75%;
+    width: 70%;
     font-size: 1.2em;
     border: 0;
     outline: none;
@@ -223,12 +223,18 @@ body::-webkit-scrollbar-thumb {
     background-color: #0d3b66;
 }
 
+.modal-title {
+    background-color: #ffde00;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .btn-secondary {
     background-color: #ffde00;
 }
 
 .modal-background-body {
-    background-color: beige;
+    background-color: rgb(238, 238, 223);
     border-radius: 5px;
     padding: 15px;
 }
@@ -242,6 +248,25 @@ body::-webkit-scrollbar-thumb {
 
 .btn-secondary {
     color: #0d3b66;
+}
+
+.btn-info {
+    background-color: #ffde00;
+    border-color: #ffde00;
+    width: 60px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    height: 60px;
+}
+
+.input-star {
+    padding-top: 6px;
+    width: 200px;
+}
+.btn-info:hover {
+    background-color: #f95738;
+    border-color: #f95738;
 }
 
 .btn-primary {
@@ -300,7 +325,6 @@ footer {
     padding: 7px;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
 }
 
 .favListArr:hover {
@@ -311,15 +335,15 @@ footer {
 .fa {
     width: 38px;
     height: 38px;
-    padding-left: 12px;
+    padding-left: 13px;
     padding-top: 12px;
-    margin-top: px;
     margin-left: 5px;
     background-color: #ffffff;
     border-radius: 15px;
 }
 .fa:hover {
     background-color: #0d3b6681;
+    cursor: pointer;
 }
 
 .favListArrBox {
@@ -369,4 +393,23 @@ footer {
 
 footer {
     margin-top: 50px;
+}
+
+.input-tag {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 5px;
+}
+
+.comment-input {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    height: 60px;
+}
+
+.favModalFlex {
+    display: flex;
 }

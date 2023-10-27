@@ -13,7 +13,7 @@ console.log('favListArr =>', favListArr);
 
 // favListArr를 result 변수에 누적 저장
 for (let i in favListArr) {
-    result += `<div>`;
+    result += `<div class="favModalFlex">`;
     result += `<div class="favListArrTitle">`;
     result += `<p class="favListArr" id="${favListArr[i].id}">${favListArr[i].title}</p>`;
     result += `</div>`;
