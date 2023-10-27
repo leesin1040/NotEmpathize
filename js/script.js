@@ -1,4 +1,6 @@
+import { apiFetch } from './apiHandler.js';
 import { movieDetailApi } from './detail.js';
+import { pageButtonAdd } from './page.js';
 import { searchempty } from './validation.js';
 
 //▼API 사이트에서 복붙
@@ -16,21 +18,22 @@ let movieMap = new Map();
 let movieCardpPost = document.getElementById('movieCards');
 
 export function getMovieApi(page = 1) {
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=${page}`, options)
-        .then((response) => response.json())
-        .then((response) => {
-            let movies = response['results']; //가져온 json자료들을 movies에 할당
-            topMovies = response['results']; // map으로 할당
+    apiFetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=${page}`)
+    .then((response) => {
+        let movies = response['results']; //가져온 json자료들을 movies에 할당
+        topMovies = response['results']; // map으로 할당
 
-            movieCardpPost.innerHTML = '';
-            //▼불러온 results 배열들을 돌리면서 각각 카드 만들기
-            movies.forEach((a) => {
-                createMovieCard(a);
-            });
+        movieCardpPost.innerHTML = '';
+        //▼불러온 results 배열들을 돌리면서 각각 카드 만들기
+        movies.forEach((a) => {
+            createMovieCard(a);
         });
+        
+    });
 }
 
 getMovieApi();
+pageButtonAdd();
 //▼HTML의 ID값 가져오기
 
 //▼카드 만들기
@@ -62,7 +65,8 @@ function createMovieCard(a) {
 
     //▼만들어진 카드를 클릭하면 해당 영화의 ID값 가져오기
     movieCard.addEventListener('click', () => {
-        const id = movieId;
+        const pageBtn = document.querySelector('#pageBtn');
+        pageBtn.remove()
         movieDetailApi(movieId);
     });
 }

@@ -133,10 +133,9 @@ nav {
 #movieCards {
     flex-wrap: wrap;
     display: flex;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 10%;
-    width: 80%;
+    margin-top: 80px;
+    flex-shrink: 0;
+    gap: 1rem;
 }
 
 /* 카드 */
@@ -351,11 +350,15 @@ footer {
 }
 
 #pageBtn {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
+.page-button-group{
+    margin: 0 .5rem;
+}
 /* 검색버튼 */
-.pagebtn {
+.pageBtn {
     border: 0;
     outline: none;
     border-radius: 10px;
@@ -366,7 +369,7 @@ footer {
     padding: 0.6rem 1rem 0.6rem 1rem;
 }
 /* 검색버튼 호버 컬러변경, 마우스 모양 바꾸기*/
-.pagebtn:hover {
+.pageBtn:hover {
     background-color: #f95738;
     transition: 0.5s;
     cursor: pointer;
@@ -376,9 +379,6 @@ footer {
     transition: 0.5s;
 }
 /* 검색버튼 누르면 컬러변경 */
-.pagebtn:active {
-    background-color: #ee964b;
-}
 
 .disabled {
     border: 0;
