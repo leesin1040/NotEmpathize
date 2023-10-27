@@ -300,6 +300,7 @@ footer {
 }
 .fa:hover {
     background-color: #0d3b6681;
+    cursor: pointer;
 }
 
 .favListArrBox {
