@@ -53,15 +53,17 @@ console.log('favListDel', favListDel);
 favListDel.forEach((clk) => {
     clk.addEventListener('click', (e) => {
         e.preventDefault();
+        // favListDel의 선택된 요소 각각의 자식요소[1번째]의 id값을 favListClkDelEvent 변수에 할당
         const favListClkDelEvent = e.currentTarget.children[0].getAttribute('id');
-        console.log('favListClkDelEvent', typeof favListClkDelEvent);
-        let favListToNum = Number(favListClkDelEvent);
-        let deleteAfterArr = getfavArr.filter((element) => element.id !== favListToNum);
+        console.log('favListClkDelEvent', typeof favListClkDelEvent); // favListClkDelEvent가 문자열인지 숫자인지 type확인
+        let favListToNum = Number(favListClkDelEvent); // 확인 해보니 문자열이라 숫자로 바꿔줌
+        let deleteAfterArr = getfavArr.filter((element) => element.id !== favListToNum); // getfavArr 배열을 filter로 favListToNum과 같지 않은 값들을 deleteAfterArr에 할당
         console.log(deleteAfterArr);
+
         if (!confirm('정말 삭제 하시겠습니까?')) {
-            return;
+            return; // true일때
         } else {
-            localStorage.setItem('favorites', JSON.stringify(deleteAfterArr));
+            localStorage.setItem('favorites', JSON.stringify(deleteAfterArr)); // false 일 때
             window.location.reload();
         }
     });
@@ -71,10 +73,11 @@ favListDel.forEach((clk) => {
 const favListDelAll = document.querySelector('#deleteAll');
 favListDelAll.addEventListener('click', (e) => {
     e.preventDefault();
+
     if (!confirm('정말 삭제 하시겠습니까?')) {
         return;
     } else {
-        window.localStorage.removeItem('favorites');
+        window.localStorage.removeItem('favorites'); // localstorage의 key 데이터 삭제
         window.location.reload();
     }
 });
