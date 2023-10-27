@@ -1,21 +1,19 @@
-import { getMovieApi } from "./script.js";
+import { getMovieApi } from './script.js';
 
 const buttonDiv = document.querySelectorAll('#pageBtn button');
 
 buttonDiv.forEach((button) => {
-  button.addEventListener('click',(event) =>{
+  button.addEventListener('click', (event) => {
     const disableButton = document.querySelector('#pageBtn button.disabled');
 
-    if(disableButton){
+    if (disableButton) {
       disableButton.disabled = false;
-      disableButton.className = '';
+      disableButton.className = 'pagebtn';
     }
     event.currentTarget.disabled = true;
-    event.currentTarget.className = 'disabled'
-    getMovieApi(event.currentTarget.innerText)
-  })
+    event.currentTarget.className = 'disabled';
+    getMovieApi(event.currentTarget.innerText);
+  });
+});
 
-})
-
-
-console.log('버튼 디브',buttonDiv)
+console.log('버튼 디브', buttonDiv);
