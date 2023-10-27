@@ -133,9 +133,13 @@ nav {
 #movieCards {
     flex-wrap: wrap;
     display: flex;
-    margin-top: 80px;
     flex-shrink: 0;
-    gap: 1rem;
+    width: 80%;
+    margin: 80px auto 20px auto;
+}
+
+#movieCards.detail{
+    width: 100%;
 }
 
 /* 카드 */
