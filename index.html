@@ -11,8 +11,8 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/5f84f45b35.js" crossorigin="anonymous"></script>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link href="detail.css" rel="stylesheet" type="text/css" />
+  <link href="./css/detail.css" rel="stylesheet" type="text/css" />
+  <link href="./css/style.css" rel="stylesheet" type="text/css" />
   <title>슾햄 : Search For A Movie</title>
 
 
@@ -135,6 +135,9 @@
           <div id="favContent" class="modal-background-body"></div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="deleteAll">
+            전체 삭제
+          </button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             닫기
           </button>
@@ -144,7 +147,7 @@
   </div>
 
   <footer>
-    <div class="footerLogo"><img class="teamlogo" src="teamlogo.png"></div>
+    <div class="footerLogo"><img class="teamlogo" src="./image/teamlogo.png"></div>
     <div class="footerName">
       <a href="https://github.com/leesin1040" class="git"><i class="fa-brands fa-github"> <span>최이진</span></i></a>
       <a href="https://github.com/heyfuxkingcheez" class="git"><i class="fa-brands fa-github"> <span>정기욱</span></i></a>
@@ -156,11 +159,11 @@
     </div>
   </footer>
 
-  <script defer src="validation.js" type="module"></script>
-  <script defer src="script.js" type="module"></script>
-  <script defer src="./detail.js" type="module"></script>
-  <script defer src="favorites.js" type="module"></script>
-  <script defer src="page.js" type="module"></script>
+  <script defer src="./js/favorites.js" type="module"></script>
+  <script defer src="./js/validation.js" type="module"></script>
+  <script defer src="./js/detail.js" type="module"></script>
+  <script defer src="./js/page.js" type="module"></script>
+  <script defer src="./js/script.js" type="module"></script>
 </body>
 
 </html>

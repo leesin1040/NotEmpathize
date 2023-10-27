@@ -66,3 +66,15 @@ favListDel.forEach((clk) => {
         }
     });
 });
+
+// 즐겨찾기 목록 전체 삭제
+const favListDelAll = document.querySelector('#deleteAll');
+favListDelAll.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!confirm('정말 삭제 하시겠습니까?')) {
+        return;
+    } else {
+        window.localStorage.removeItem('favorites');
+        window.location.reload();
+    }
+});
