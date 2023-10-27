@@ -58,7 +58,7 @@ export const pageButtonAdd = () => {
             event.currentTarget.disabled = true;
             event.currentTarget.className += " disabled";
             getMovieApi(event.currentTarget.innerText);
-            // window.scrollTo(0,0,'smooth')
+            window.scrollTo(0,0,'smooth')
         });
     });
 }
