@@ -305,3 +305,7 @@ footer {
 .favListArrBox {
     display: flex;
 }
+
+#pageBtn{
+    text-align: center;
+}
