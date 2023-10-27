@@ -65,9 +65,11 @@ function createMovieCard(a) {
 
     //▼만들어진 카드를 클릭하면 해당 영화의 ID값 가져오기
     movieCard.addEventListener('click', () => {
+        const container = document.querySelector('#movieCards')
         const pageBtn = document.querySelector('#pageBtn');
         pageBtn.remove()
         movieDetailApi(movieId);
+        container.classList.add('detail')
     });
 }
 

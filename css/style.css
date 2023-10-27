@@ -138,6 +138,10 @@ nav {
     margin: 80px auto 20px auto;
 }
 
+#movieCards.detail{
+    width: 100%;
+}
+
 /* 카드 */
 .card {
     background-image: url('https://github.com/leesin1040/Movie/blob/main/spam1.png?raw=true');
