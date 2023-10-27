@@ -56,6 +56,14 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=1', opti
 favMainBtn.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('local id값 불러오기 =>', getfavArr);
+        // const ddd = document.querySelectorAll('.favListArrBox')
+    // console.log('ddd',ddd)
+    //     ddd.forEach((d)=>{
+    //         d.addEventListener('click',(event)=>{
+    //             console.log(event.currentTarget.children[0].getAttribute('id'))
+    //             movieDetailApi(event.currentTarget.children[0].getAttribute('id'))
+    //         })
+    // })
 });
 
 // 즐겨찾기 목록 페이지 이동 이벤트
