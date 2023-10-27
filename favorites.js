@@ -2,7 +2,6 @@ import { movieDetailApi } from './detail.js';
 
 const favMainBtn = document.querySelector('#favoritesHome');
 const getfavArr = JSON.parse(localStorage.getItem('favorites'));
-const toNumber = getfavArr.map((i) => Number(i));
 let favListArr = [];
 let result = '';
 
@@ -15,9 +14,13 @@ console.log('favListArr =>', favListArr);
 // favListArr를 result 변수에 누적 저장
 for (let i in favListArr) {
     result += `<div>`;
-    result += `<div class="favListArrBox"><p class="favListArr" id="${favListArr[i].id}">${favListArr[i].title}</p>
-    <div class="fa" id="${favListArr[i].id}">x</div>`;
-    // result += `<p style="display:none">${favListArr[i].id}</p>`;
+    result += `<div class="favListArrTitle">`;
+    result += `<p class="favListArr" id="${favListArr[i].id}">${favListArr[i].title}</p>`;
+    result += `</div>`;
+
+    result += `<div class="favListArrDel">
+    <div class="fa" id="${favListArr[i].id}">x</div>
+    </div>`;
     result += `</div>`;
 }
 console.log('result =>', result);
@@ -33,25 +36,32 @@ favMainBtn.addEventListener('click', (e) => {
 });
 
 // 즐겨찾기 목록 페이지 이동 이벤트
-const favListClk = document.querySelectorAll('.favListArrBox');
+const favListClk = document.querySelectorAll('.favListArrTitle');
 console.log('favListClk', favListClk);
 favListClk.forEach((clk) => {
     clk.addEventListener('click', (e) => {
         e.preventDefault();
-        // console.log(e.currentTarget.children[0].getAttribute('id'));
-        movieDetailApi(e.currentTarget.children[0].getAttribute('id'));
+        const favListClkEvent = e.currentTarget.children[0].getAttribute('id');
+        // console.log('favlistclkevent', favListClkEvent);
+        // console.log(favListClkEvent);
+        movieDetailApi(favListClkEvent);
     });
 });
 
+// 즐겨찾기 목록 삭제 이벤트
+const favListDel = document.querySelectorAll('.favListArrDel');
+console.log('favListDel', favListDel);
+favListDel.forEach((clk) => {
+    clk.addEventListener('click', (e) => {
+        e.preventDefault();
+        const favListClkDelEvent = e.currentTarget.children[0].getAttribute('id');
+        // console.log('favListClkDelEvent', favListClkDelEvent);
+    });
+});
+
+// 즐겨찾기 목록 삭제 함수
 function listDeleteFunc(del) {
     console.log(favListDelId);
     console.log('콜백 함수 =>', del.id);
-    return del.id !== favListDelId;
+    return del.id !== favListClkDelEvent;
 }
-// 즐겨찾기 목록 삭제 이벤트
-const favListDel = document.querySelector('.fa');
-const favListDelId = document.querySelector('.fa').getAttribute('id');
-favListDel.addEventListener('click', (e) => {
-    e.preventDefault();
-    console.log('삭제 클릭! =>', favListDelId);
-});
