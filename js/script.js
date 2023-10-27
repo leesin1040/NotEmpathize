@@ -15,19 +15,19 @@ let topMovies;
 let movieMap = new Map();
 let movieCardpPost = document.getElementById('movieCards');
 
-export function getMovieApi(page = 1){
+export function getMovieApi(page = 1) {
     fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-kr&page=${page}`, options)
-    .then((response) => response.json())
-    .then((response) => {
-        let movies = response['results']; //가져온 json자료들을 movies에 할당
-        topMovies = response['results']; // map으로 할당
+        .then((response) => response.json())
+        .then((response) => {
+            let movies = response['results']; //가져온 json자료들을 movies에 할당
+            topMovies = response['results']; // map으로 할당
 
-        movieCardpPost.innerHTML = "";
-        //▼불러온 results 배열들을 돌리면서 각각 카드 만들기
-        movies.forEach((a) => {
-            createMovieCard(a);
+            movieCardpPost.innerHTML = '';
+            //▼불러온 results 배열들을 돌리면서 각각 카드 만들기
+            movies.forEach((a) => {
+                createMovieCard(a);
+            });
         });
-    });
 }
 
 getMovieApi();
