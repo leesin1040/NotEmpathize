@@ -19,10 +19,10 @@
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : 최이진 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 정기욱 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 정윤서 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 박신욱 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/leesin1040"><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : 최이진 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/heyfuxkingcheez"><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 정기욱 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Avoler0"><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 정윤서 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/PSWOOK1"><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 박신욱 </b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>
