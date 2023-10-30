@@ -43,6 +43,7 @@
       <td style="border:1px solid #D7D7D7; font-weight:600">정기욱</td>
       <td style="border:1px solid #D7D7D7">즐겨찾기</td>
       <td style="border:1px solid #D7D7D7">레이아웃 CSS</td>
+      <td style="border:1px solid #D7D7D7"></td>
     </tr>
     <tr>
       <td style="border:1px solid #D7D7D7; font-weight:600">정윤서</td>
@@ -53,6 +54,8 @@
     <tr>
       <td style="border:1px solid #D7D7D7; font-weight:600">박신욱</td>
       <td style="border:1px solid #D7D7D7">페이지 네이션</td>
+      <td style="border:1px solid #D7D7D7"></td>
+      <td style="border:1px solid #D7D7D7"></td>
     </tr>
   </tbody>
 </table>
