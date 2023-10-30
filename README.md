@@ -19,10 +19,10 @@
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/leesin1040"><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : 최이진 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/heyfuxkingcheez"><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 정기욱 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/Avoler0"><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 정윤서 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/PSWOOK1"><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 박신욱 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/leesin1040"><img src="https://avatars.githubusercontent.com/u/74364209?v=4" width="100px;" alt=""/><br /><sub><b> 팀장 : 최이진 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/heyfuxkingcheez"><img src="https://avatars.githubusercontent.com/u/143869354?v=4" width="100px;" alt=""/><br /><sub><b> 팀원 : 정기욱 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Avoler0"><img src="https://avatars.githubusercontent.com/u/91608021?v=4" width="100px;" alt=""/><br /><sub><b> 팀원 : 정윤서 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/PSWOOK1"><img src="https://avatars.githubusercontent.com/u/146942061?v=4" width="100px;" alt=""/><br /><sub><b> 팀원 : 박신욱 </b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>
