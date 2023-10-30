@@ -24,7 +24,7 @@ export const pageButtonAdd = () => {
         const lastChild = pageButtons[4];
         const firstChild = pageButtons[0].innerText;
 
-        if(+firstChild === 1) alert('첫번째 페이지입니다.');
+        if(+firstChild === 1) return alert('첫번째 페이지입니다.');
 
         buttonDisable(true,lastChild);
         buttonDisable(false);

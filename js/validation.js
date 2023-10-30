@@ -22,7 +22,6 @@ export function nameCheck() {
   let writerCheck = /^[가-힣a-zA-Z0-9]+$/;
   let nameInput = document.querySelector('.comment-form .name-input');
   if (writerCheck.test(nameInput.value)) {
-    console.log('작성자명 확인완료');
     return true;
   } else {
     nameInput.value = null; //비우기
