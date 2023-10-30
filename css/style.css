@@ -134,7 +134,7 @@ nav {
     display: flex;
     flex-shrink: 0;
     width: 80%;
-    margin: 120px auto 40px auto;
+    margin: 120px 150px 40px auto;
 }
 
 #movieCards.detail {
