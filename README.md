@@ -31,8 +31,8 @@
   </tbody>
 </table>
 <h3 style="margin: 2rem 0;">구현 기능</h3>
-<table>
-  <tbody style="border:1px solid #D7D7D7;">
+<table style="border:1px solid #D7D7D7;">
+  <tbody>
     <tr>
       <td style="border:1px solid #D7D7D7; font-weight:600">최이진</td>
       <td style="border:1px solid #D7D7D7">유효성 검사</td>
