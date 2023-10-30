@@ -26,8 +26,9 @@ export const pageButtonAdd = () => {
 
         if(+firstChild === 1) return alert('첫번째 페이지입니다.');
 
-        buttonDisable(true,lastChild);
         buttonDisable(false);
+        buttonDisable(true,lastChild);
+        
         pageButtons.forEach((button,i) =>{
             button.innerText = +firstChild - 5 + i +1
         })
@@ -38,8 +39,9 @@ export const pageButtonAdd = () => {
         const lastChild = pageButtons[4];
         const lastValue = pageButtons[4].innerText;
 
-        buttonDisable(true,lastChild);
         buttonDisable(false);
+        buttonDisable(true,lastChild);
+
         pageButtons.forEach((button,i) =>{
             button.innerText = +lastValue + i
         })
@@ -65,6 +67,7 @@ export const pageButtonAdd = () => {
 
 function buttonDisable(booleanType,button = document.querySelector('#pageBtn button.disabled')){
     button.disabled = booleanType;
+
     if(booleanType) button.classList.add('disabled')
     else button.classList.remove('disabled')
     
