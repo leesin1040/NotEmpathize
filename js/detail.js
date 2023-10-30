@@ -5,7 +5,6 @@ export const movieDetailApi = async (movieId) => {
     await fetch(`https://api.themoviedb.org/3/movie/${movieId}?append_to_response=credits&language=ko-KR`, options)
         .then((response) => response.json())
         .then((response) => {
-            console.log('디테일 api', response);
             detailPage(response);
         });
 };
@@ -16,7 +15,7 @@ export const movieVideoApi = async (movieId) => {
 
         return result.json();
     } catch (err) {
-        console.log('무비 비디오 에러', err);
+      alert('영화 비디오 데이터를 가져오는데 실패했습니다.')
     }
 };
 
@@ -44,7 +43,7 @@ function detailPage(detail) {
         poster_path,
     } = detail;
     const backImage = backdrop_path ? backdrop_path : poster_path;
-    console.log(detail);
+
     let html;
     html = `
     <div class="detail-container">
@@ -152,7 +151,6 @@ const initStarInsert = () => {
 
     const star = document.querySelector('.input-star');
     star.innerHTML = html.join('');
-    console.log(typeof temp);
     const starWrap = document.querySelectorAll(`.input-star .star-wrap`);
 
     starWrap.forEach((t, i) => {
@@ -162,7 +160,6 @@ const initStarInsert = () => {
         left.addEventListener('click', (event) => {
             const starSvg = document.querySelector(`.star-wrap .star-svg-${i}`);
             const d = starSvg.firstElementChild.children[0];
-            console.log(`왼 ${i}.5`);
             star.setAttribute('data-star', `${i}.5`);
             for (let j = 0; j < i; j++) {
                 const prevStar = document.querySelector(`.star-wrap .star-svg-${j}`);
@@ -182,7 +179,6 @@ const initStarInsert = () => {
             const d = starSvg.firstElementChild.children[0];
             d.innerHTML = fill;
 
-            console.log(`오 ${i + 1}`);
             star.setAttribute('data-star', `${i + 1}`);
             for (let j = 0; j < i; j++) {
                 const prevStar = document.querySelector(`.star-wrap .star-svg-${j}`);
@@ -208,10 +204,7 @@ const commentStarInsert = (num, index) => {
     const fill = `<stop offset="100%" stop-color="yellow" />`;
 
     for (let i = 0; i < 5; i++) {
-        console.log(i, d);
-
-        console.log(`${i < d ? (d - i === 0.5 ? '빈공간' : '꽉참') : '반쪽'}`);
-        temp_html += `
+      temp_html += `
       <div class="comment-star-wrap">
         <svg class="comment-star-svg-${i}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="800px" width="800px"
           version="1.1" id="Capa_1" viewBox="0 0 47.94 47.94" xml:space="preserve">
@@ -236,7 +229,6 @@ const commentDraw = (movieId) => {
     const comments = localStorage.getItem(`comment-${movieId}`)
         ? JSON.parse(localStorage.getItem(`comment-${movieId}`))
         : [];
-    console.log('코멘트들', comments);
     const commentHTML = comments.map((comment, index) => {
         return `
       <div class="comment-item modal-background-body" data-index="${index}">
@@ -267,7 +259,6 @@ const commentDraw = (movieId) => {
 
 const deleteComment = (btn) => {
     btn.addEventListener('click', (event) => {
-        console.log('댓글 삭제');
         const movieId = commentModalBox.getAttribute('data-id');
         const deleteIndex = event.currentTarget.parentElement.parentElement.getAttribute('data-index');
         const load = JSON.parse(localStorage.getItem(`comment-${movieId}`));
@@ -313,7 +304,6 @@ commentModalBox.addEventListener('show.bs.modal', async function () {
     commentModalBox.setAttribute('data-id', movieId);
     commentDraw(movieId);
 
-    console.log('코멘트 모달', movieId);
 });
 
 // 모달이 닫히면 유튜브 비디오를 초기화합니다.
@@ -343,7 +333,6 @@ favLocalUp.addEventListener('click', async function () {
         } else {
             for (let item of getfav) {
                 arr.push(item);
-                // console.log(item);
             }
             arr.push(favStr);
             setFavList();
