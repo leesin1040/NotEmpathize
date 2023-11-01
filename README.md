@@ -74,7 +74,7 @@ https://leesin1040.github.io/NotEmpathize/
 <br>
  
  ## Api
- <img src="https://img.shields.io/badge/TMDBL-01B4E4?style=for-the-badge&logo=themoviedatabase&logoColor=white"/>
+ <img src="https://img.shields.io/badge/TMDB-01B4E4?style=for-the-badge&logo=themoviedatabase&logoColor=white"/>
 
 <br>
  
